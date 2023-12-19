@@ -35,7 +35,7 @@ average_monthly_data.reset_index(inplace=True)
 average_monthly_data['Month'] = average_monthly_data['Month'].apply(lambda x: calendar.month_abbr[x])
 
 # Main content: Line chart with average prices for each month
-st.markdown("<h6 style='text-align: center;'>Average Monthly Oil Prices (barel) </h6>", unsafe_allow_html=True)
+st.markdown("<h6 style='text-align: center;'>Average Monthly Oil Prices (barrel) </h6>", unsafe_allow_html=True)
 fig, ax = plt.subplots()
 
 for year in years:
