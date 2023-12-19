@@ -2,4 +2,4 @@ streamlit==1.15.0
 pandas==1.3.3
 matplotlib==3.4.3
 plotly==5.3.1
-nasdaqdatalink==0.0.2
+nasdaq-data-link
