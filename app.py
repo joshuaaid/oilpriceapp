@@ -5,21 +5,54 @@ import plotly.express as px
 import nasdaqdatalink
 import calendar
 import datetime
+<<<<<<< HEAD
+from datetime import date
+import numpy as np
+
+=======
 
 
 api_key = st.secrets["api_key"]
+>>>>>>> origin/master
 # Set the API key
+api_key = st.secrets["api_key"]
 nasdaqdatalink.ApiConfig.api_key = api_key
 mydata = nasdaqdatalink.get_table('QDL/OPEC')
-
 df = mydata.copy()
+st.markdown("<h6 style='text-align: center;'>Please select the years to compare average prices </h6>", unsafe_allow_html=True)
+fig1, ax1 = plt.subplots()
+# Adding labels and title
+ax1.set_xlabel('Time')
+ax1.set_ylabel('Price')
+ax1.set_title('Price of OPEC oil (barrel)')
 
+# Set the default value for the date input widget to the minimum date in the DataFrame
+default_date = mydata['date'].min()
+# Create date input widget for start date with limits
+start_date = st.date_input("Please define start date:", min_value=mydata['date'].min(), value=default_date)
+end_date = st.date_input("Please define end date:",  max_value= mydata['date'].max(), value=default_date)
+if start_date > end_date:
+    st.warning("Start date cannot be greater than end date.")
+elif start_date == end_date:
+    st.warning("Start date and end date cannot be the same.")
+else:
+    mask = df[(df['date'] >= np.datetime64(start_date) ) & (df['date'] <= np.datetime64(end_date))]
+    ax1.plot(mask['date'],mask['value'])
+    ax1.set_xticklabels(ax1.get_xticklabels(), rotation=60, ha='right')
+
+# Displaying the plot using Streamlit
+st.pyplot(fig1)
+
+
+
+#The second graph
+st.markdown("---")
+st.markdown("<h6 style='text-align: center;'>Please select the years to compare average prices </h6>", unsafe_allow_html=True)
 df.set_index('date', inplace=True)
+# Year selection with default value
 # Set default selected year to the current year
 default_year = datetime.datetime.now().year
-
-# Sidebar: Year selection with default value
-years = st.sidebar.multiselect('Select Years', list(df.index.year.unique()), default=[default_year])
+years = st.multiselect('Select Years', list(df.index.year.unique()), default=[default_year])
 
 # Filter data based on selected years
 filtered_data = df[df.index.year.isin(years)]
@@ -32,18 +65,18 @@ average_monthly_data['Month'] = average_monthly_data['Month'].apply(lambda x: ca
 
 # Main content: Line chart with average prices for each month
 st.markdown("<h6 style='text-align: center;'>Average Monthly Oil Prices (barrel) </h6>", unsafe_allow_html=True)
-fig, ax = plt.subplots()
+fig2, ax2 = plt.subplots()
 
 for year in years:
     subset = average_monthly_data[average_monthly_data['Year'] == year]
-    ax.plot(subset['Month'], subset['value'], label=str(year))
+    ax2.plot(subset['Month'], subset['value'], label=str(year))
 
-ax.set_xlabel('Month')
-ax.set_ylabel('Price')
-ax.legend()
+ax2.set_xlabel('Month')
+ax2.set_ylabel('Price')
+ax2.legend()
 
 # Display the plot using Streamlit
-st.pyplot(fig)
+st.pyplot(fig2)
 
 # Data Source
 st.markdown("---")
