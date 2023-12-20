@@ -14,7 +14,7 @@ api_key = st.secrets["api_key"]
 nasdaqdatalink.ApiConfig.api_key = api_key
 mydata = nasdaqdatalink.get_table('QDL/OPEC')
 df = mydata.copy()
-st.markdown("<h6 style='text-align: center;'>Please select the years to compare average prices </h6>", unsafe_allow_html=True)
+st.markdown("<h6 style='text-align: center;'>Please select the time period </h6>", unsafe_allow_html=True)
 fig1, ax1 = plt.subplots()
 # Adding labels and title
 ax1.set_xlabel('Time')
