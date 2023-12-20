@@ -9,11 +9,11 @@ import datetime
 file_path = "api key.txt"
 
 # Read the API key from the text file
-'''
-For local host code
-with open(file_path, "r") as file:
-    api_key = file.read().strip()
-'''
+
+#For local host code
+#with open(file_path, "r") as file:
+    #api_key = file.read().strip()
+
 
 api_key = "ypiVt9Q1u2wSDEETjzUm"
 # Set the API key
