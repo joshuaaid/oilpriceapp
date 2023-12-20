@@ -5,13 +5,9 @@ import plotly.express as px
 import nasdaqdatalink
 import calendar
 import datetime
-# Specify the path to your text file containing the API key
-file_path = "api key.txt"
-
-# Read the API key from the text file
 
 
-api_key = "ypiVt9Q1u2wSDEETjzUm"
+api_key = st.secrets["api_key"]
 # Set the API key
 nasdaqdatalink.ApiConfig.api_key = api_key
 mydata = nasdaqdatalink.get_table('QDL/OPEC')
