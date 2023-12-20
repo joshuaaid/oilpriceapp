@@ -22,10 +22,17 @@ ax1.set_ylabel('Price')
 ax1.set_title('Price of OPEC oil (barrel)')
 
 # Set the default value for the date input widget to the minimum date in the DataFrame
-default_date = mydata['date'].max()
+min_date = mydata['date'].min()
+max_date = mydata['date'].max()
+
+#default_date = mydata['date'].max()
 # Create date input widget for start date with limits
-start_date = st.date_input("Please define start date:", min_value=mydata['date'].min())
-end_date = st.date_input("Please define end date:",  max_value= mydata['date'].max(), value = default_date)
+#start_date = st.date_input("Please define start date:", min_value=mydata['date'].min())
+#end_date = st.date_input("Please define end date:",  max_value= mydata['date'].max(), value = default_date)
+
+start_date = st.date_input("Please define start date:", min_value=min_date)
+end_date = st.date_input("Please define end date:",  max_value=max_date )
+
 if start_date > end_date:
     st.warning("Start date cannot be greater than end date.")
 elif start_date == end_date:
