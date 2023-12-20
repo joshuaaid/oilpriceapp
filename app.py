@@ -5,15 +5,10 @@ import plotly.express as px
 import nasdaqdatalink
 import calendar
 import datetime
-<<<<<<< HEAD
+
 from datetime import date
 import numpy as np
-
-=======
-
-
 api_key = st.secrets["api_key"]
->>>>>>> origin/master
 # Set the API key
 api_key = st.secrets["api_key"]
 nasdaqdatalink.ApiConfig.api_key = api_key
