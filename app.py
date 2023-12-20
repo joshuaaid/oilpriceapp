@@ -25,7 +25,7 @@ ax1.set_title('Price of OPEC oil (barrel)')
 default_date = mydata['date'].max()
 # Create date input widget for start date with limits
 start_date = st.date_input("Please define start date:", min_value=mydata['date'].min())
-end_date = st.date_input("Please define end date:",  max_value= mydata['date'].max())
+end_date = st.date_input("Please define end date:",  max_value= mydata['date'].max(), value = default_date)
 if start_date > end_date:
     st.warning("Start date cannot be greater than end date.")
 elif start_date == end_date:
