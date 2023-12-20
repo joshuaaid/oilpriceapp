@@ -35,7 +35,10 @@ elif start_date == end_date:
 else:
     mask = df[(df['date'] >= np.datetime64(start_date) ) & (df['date'] <= np.datetime64(end_date))]
     ax1.plot(mask['date'],mask['value'])
+    ax1.update_traces(mode='lines+text', textposition='top center', text=mask['value'])
     ax1.set_xticklabels(ax1.get_xticklabels(), rotation=60, ha='right')
+
+
 
 # Displaying the plot using Streamlit
 st.pyplot(fig1)
