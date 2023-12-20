@@ -9,9 +9,12 @@ import datetime
 file_path = "api key.txt"
 
 # Read the API key from the text file
+'''
+For local host code
 with open(file_path, "r") as file:
     api_key = file.read().strip()
-
+'''
+api key = st.secrets.["api_key"]
 # Set the API key
 nasdaqdatalink.ApiConfig.api_key = api_key
 mydata = nasdaqdatalink.get_table('QDL/OPEC')
