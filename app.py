@@ -17,7 +17,7 @@ df = mydata.copy()
 st.markdown("<h6 style='text-align: center;'>Please select the time period </h6>", unsafe_allow_html=True)
 fig1, ax1 = plt.subplots()
 # Adding labels and title
-ax1.set_xlabel('Time')
+ax1.set_xlabel('Period')
 ax1.set_ylabel('Price')
 ax1.set_title('Price of OPEC oil (barrel)')
 
