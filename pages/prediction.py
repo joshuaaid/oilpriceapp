@@ -78,6 +78,13 @@ def main():
         
         plt.title('Actual vs Forecasted Values with Uncertainty Intervals')
         st.pyplot(fig2)
+            # Data Source
+        st.markdown("---")
+        st.markdown("### Data Source:")
+        st.markdown("<div> The data used is taken live from <a href='https://www.nasdaq.com/'> https://www.nasdaq.com/</a>. The prediction model is automatically updated based on OPEC dataset. <ul><li>Data is updated at 08:30 am ET Monday to Friday with the same day's data.</li> </ul></div>",
+                unsafe_allow_html=True)
+
+
 
 
 if __name__ == "__main__":
