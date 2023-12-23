@@ -8,7 +8,7 @@ import nasdaqdatalink
 import time
 
 def main():
-    api_key = 'ypiVt9Q1u2wSDEETjzUm'
+    api_key = st.secrets["api_key"]
     nasdaqdatalink.ApiConfig.api_key = api_key
     mydata = nasdaqdatalink.get_table('QDL/OPEC')
     df = mydata.copy()
