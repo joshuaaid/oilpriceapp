@@ -23,7 +23,7 @@ def main():
 
     st.markdown("<h6 style='text-align: center;'>Please select the time period to capture seasonality patterns and build model</h6>", unsafe_allow_html=True)
     # Slider for user input
-    forecast_days = st.slider("Number of days to forecast", min_value=1, max_value=365, value=30)
+    forecast_days = st.slider("Number of days to forecast", min_value=1, max_value=365, value=365)
 
     # Fit the Prophet model
     model = Prophet()
