@@ -18,7 +18,7 @@ def main():
     elif start_date == end_date:
         st.warning("Start date and end date cannot be the same.")
     else:
-        symbols = ["TSLA", "AAPL","AMD","PYPL","META","GOOG","MSFT","JPM","WMT","XOM","JNJ"]
+        symbols = ["TSLA", "AAPL","AMD","PYPL","META","GOOG","MSFT","JPM","WMT","XOM","JNJ","PFE","NVDA","NFLX"]
         symbol_filter = st.multiselect('Please select the stocks to visualize:', symbols, default=['AAPL'])
         if len (symbol_filter) == 0:
             st.warning('Please select at least one stock !')
