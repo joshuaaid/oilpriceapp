@@ -6,9 +6,9 @@ from pages import stock
 st.set_page_config(layout="wide")
 
 def main():
-    st.title("Oil Price Tools")
-    st.write("Welcome to our Oil Price Tools application. Explore the latest oil prices and analysis.")
-    tool_choice = st.selectbox("Choose an Oil Price Tool:", ["Live oil price visualization", "Live oil price prediction","Stock analysis"])
+    st.title("Price Tools")
+    st.write("Welcome to our Price Tools application. Explore the latest prices and analysis.")
+    tool_choice = st.selectbox("Choose an Price Tool:", ["Live oil price visualization", "Live oil price prediction","Stock analysis"])
 
     if tool_choice == "Live oil price visualization":
         visualization.main()
