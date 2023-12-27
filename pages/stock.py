@@ -20,9 +20,8 @@ def main():
     else:
         symbols = ["TSLA", "AAPL","AMD","PYPL","META","GOOG","MSFT","JPM","WMT","XOM","JNJ"]
         symbol_filter = st.multiselect('Please select the stocks to visualize:', symbols, default=['AAPL'])
-        if symbol_filter.empty:
-            #st.warning("Please select at least one stock.")
-            st.write(len(symbol_filter))
+        if len (symbol_filter) == 0:
+            print(symbol_filter)
         else:
             data = yf.download(symbol_filter, start=start_date, end=end_date)
             adj_close_data = data['Adj Close']
