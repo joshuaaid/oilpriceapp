@@ -5,3 +5,4 @@ plotly
 nasdaq-data-link
 numpy
 Prophet
+yfinance

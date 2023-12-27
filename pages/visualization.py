@@ -5,11 +5,10 @@ import nasdaqdatalink
 import calendar
 import datetime
 import numpy as np
-
 from datetime import date
+from credential import api_key
 
 def main():
-    api_key = st.secrets["api_key"]
     nasdaqdatalink.ApiConfig.api_key = api_key
     mydata = nasdaqdatalink.get_table('QDL/OPEC')
     df = mydata.copy()

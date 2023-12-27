@@ -6,9 +6,9 @@ import plotly.express as px
 from prophet import Prophet
 import nasdaqdatalink
 import time
+from credential import api_key
 
-def main():
-    api_key = st.secrets["api_key"]
+def main(): 
     nasdaqdatalink.ApiConfig.api_key = api_key
     mydata = nasdaqdatalink.get_table('QDL/OPEC')
     df = mydata.copy()
