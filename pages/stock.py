@@ -20,7 +20,7 @@ def main():
     else:
         symbols = ["TSLA", "AAPL","AMD","PYPL","META","GOOG","MSFT","JPM","WMT","XOM","JNJ"]
         symbol_filter = st.multiselect('Please select the stocks to visualize:', symbols, default=['AAPL'])
-        if not symbol_filter:
+        if len(symbol_filter) == 0:
             st.warning("Please select at least one stock.")
         else:
             data = yf.download(symbol_filter, start=start_date, end=end_date)
