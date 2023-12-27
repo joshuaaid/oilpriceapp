@@ -10,7 +10,7 @@ import yfinance as yf
 def main():
     st.markdown("<h6 style='text-align: center;'>Please select the time period </h6>", unsafe_allow_html=True)
     st.markdown("---")
-    min_date = datetime(1996, 1, 1)
+    min_date = datetime(1990, 1, 1)
     start_date = st.date_input("Please define start date:",min_value=min_date)
     end_date = st.date_input("Please define end date:",min_value=min_date)
     if start_date > end_date:
