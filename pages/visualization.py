@@ -37,8 +37,8 @@ def main():
     st.subheader("Average Monthly Oil Prices (barrel)")
 
     df.set_index('date', inplace=True)
-    default_year = datetime.datetime.now().year
-    years = st.multiselect('Select Years', list(df.index.year.unique()), default=2023)
+    default_year = max(df.index.year.unique())
+    years = st.multiselect('Select Years', list(df.index.year.unique()), default=default_year)
     filtered_data = df[df.index.year.isin(years)]
 
     average_monthly_data = filtered_data.groupby([filtered_data.index.year, filtered_data.index.month]).mean()
